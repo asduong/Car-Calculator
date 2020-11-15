@@ -3,8 +3,8 @@ const carPricingCalculator = (arr) => {
   const adminFee = 1200;
   const carFee = 1.02;
   const salesTax = 1.13;
-  const currentAddOns = [];
   const reqDiscountAmt = 8000;
+  const currentAddOns = [];
   let upgrades = 0;
 
   arr.forEach((obj) => {
@@ -14,14 +14,18 @@ const carPricingCalculator = (arr) => {
       upgrades += obj.price;
     }
   });
-
+  // If the Upgrade amount is greater than the Required Discount Amount
   if (upgrades >= reqDiscountAmt) {
     upgrades = (upgrades - reqDiscountAmt) / 2 + reqDiscountAmt;
   }
 
-  return parseFloat(
+  const totalPrice = parseFloat(
     (((upgrades + basePrice) * carFee + adminFee) * salesTax).toFixed(2)
   );
+
+  return `The cost for this car is $${totalPrice} with the following configurations ${currentAddOns.join(
+    ', '
+  )}`;
 };
 
 const addOnInfo = [
