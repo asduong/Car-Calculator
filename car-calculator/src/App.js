@@ -1,25 +1,74 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      totalPrice: 24999,
+      upgrades: 0,
+      addOns: [],
+      discounts: 0,
+    };
+  }
+
+  handleClick = (e) => {
+    if (e.target.checked === true) {
+      this.setState({
+        upgrades: this.state.upgrades + parseInt(e.target.value),
+      });
+    } else {
+      this.setState({
+        upgrades: this.state.upgrades - parseInt(e.target.value),
+      });
+    }
+  };
+
+
+
+  render() {
+    return (
+      <div>
+        <input
+          onClick={(event) => this.handleClick(event)}
+          type="checkbox"
+          value="2500"
+          addOn="AWD Drivetrain"
+        />
+        <input
+          onClick={(event) => this.handleClick(event)}
+          type="checkbox"
+          value="2000"
+          addOn="GPS Navigation"
+        />
+        <input
+          onClick={(event) => this.handleClick(event)}
+          type="checkbox"
+          value="2000"
+          addOn="Winter Tire Package"
+        />
+        <input
+          onClick={(event) => this.handleClick(event)}
+          type="checkbox"
+          value="3500"
+          addOn="Sport Package"
+        />
+        <input
+          onClick={(event) => this.handleClick(event)}
+          type="checkbox"
+          value="1500"
+          addOn="Live Traffic Updates"
+        />
+        <input
+          onClick={(event) => this.handleClick(event)}
+          type="checkbox"
+          value="2500"
+          addOn="Roadside Assistance"
+        />
+        
+      </div>
+    );
+  }
 }
 
 export default App;
