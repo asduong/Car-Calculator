@@ -76,7 +76,7 @@ class App extends React.Component {
     // If the Upgrade amount is greater than the Required Discount Amount
     if (upgrades >= reqDiscountAmt) {
       discount = (upgrades - reqDiscountAmt) / 2;
-      upgrades = (upgrades - reqDiscountAmt) / 2 + reqDiscountAmt;
+      upgrades = upgrades - discount;
     }
 
     const totalPrice = parseFloat(
