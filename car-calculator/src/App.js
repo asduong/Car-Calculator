@@ -5,70 +5,130 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      totalPrice: 24999,
-      upgrades: 0,
-      addOns: [],
-      discounts: 0,
+      addOns: [
+        {
+          id: 1,
+          price: 2500,
+          addOn: 'AWD Drivetrain',
+          checked: false,
+        },
+        {
+          id: 2,
+          price: 2000,
+          addOn: 'GPS Navigation',
+          checked: false,
+        },
+        {
+          id: 3,
+          price: 2000,
+          addOn: 'Winter Tire Package',
+          checked: false,
+        },
+        {
+          id: 4,
+          price: 3500,
+          addOn: 'Sport Package',
+          checked: false,
+        },
+        {
+          id: 5,
+          price: 1500,
+          addOn: 'Live Traffic Updates',
+          checked: false,
+        },
+        {
+          id: 6,
+          price: 2500,
+          addOn: 'Roadside Assistance',
+          checked: false,
+        },
+      ],
     };
   }
 
-  handleClick = (e) => {
-    if (e.target.checked === true) {
-      this.setState({
-        upgrades: this.state.upgrades + parseInt(e.target.value),
-      });
-    } else {
-      this.setState({
-        upgrades: this.state.upgrades - parseInt(e.target.value),
-      });
-    }
+  handleChange = (e) => {
+    let addOns = this.state.addOns;
+    addOns.forEach((opt) => {
+      if (opt.id.toString() === e.target.value) {
+        opt.checked = e.target.checked;
+      }
+    });
+    this.setState({ addOns });
   };
 
+  carPricingCalculator = (arr) => {
+    const basePrice = 24999;
+    const adminFee = 1200;
+    const carFee = 1.02;
+    const salesTax = 1.13;
+    const reqDiscountAmt = 8000;
+    const currentAddOns = [];
+    let upgrades = 0;
 
+    arr.forEach((obj) => {
+      // To prevent adding the same addon
+      if (!currentAddOns.includes(obj.addOn)) {
+        currentAddOns.push(obj.addOn);
+        upgrades += obj.price;
+      }
+    });
+    // If the Upgrade amount is greater than the Required Discount Amount
+    if (upgrades >= reqDiscountAmt) {
+      upgrades = (upgrades - reqDiscountAmt) / 2 + reqDiscountAmt;
+    }
+
+    const totalPrice = parseFloat(
+      (((upgrades + basePrice) * carFee + adminFee) * salesTax).toFixed(2)
+    );
+
+    if (currentAddOns.length === 0) {
+      return `The cost for this car is $${totalPrice} with no additional configurations`;
+    }
+
+    return `The cost for this car is $${totalPrice} with the following configurations ${currentAddOns.join(
+      ', '
+    )}`;
+  };
 
   render() {
+    const addOns = this.state.addOns;
+    const selectedAddons = addOns.filter((opt) => opt.checked);
     return (
       <div>
-        <input
-          onClick={(event) => this.handleClick(event)}
-          type="checkbox"
-          value="2500"
-          addOn="AWD Drivetrain"
-        />
-        <input
-          onClick={(event) => this.handleClick(event)}
-          type="checkbox"
-          value="2000"
-          addOn="GPS Navigation"
-        />
-        <input
-          onClick={(event) => this.handleClick(event)}
-          type="checkbox"
-          value="2000"
-          addOn="Winter Tire Package"
-        />
-        <input
-          onClick={(event) => this.handleClick(event)}
-          type="checkbox"
-          value="3500"
-          addOn="Sport Package"
-        />
-        <input
-          onClick={(event) => this.handleClick(event)}
-          type="checkbox"
-          value="1500"
-          addOn="Live Traffic Updates"
-        />
-        <input
-          onClick={(event) => this.handleClick(event)}
-          type="checkbox"
-          value="2500"
-          addOn="Roadside Assistance"
-        />
-        
+        <div>
+          <p>basePrice: 24999</p>
+          <p>adminFee: 1200</p>
+          <p>carFee: 1.02</p>
+          <p>salesTax: 1.13</p>
+
+          {addOns.map((opt) => (
+            <div>
+              <CheckBox
+                {...opt}
+                label={opt.addOn}
+                handleChange={this.handleChange}
+              />
+            </div>
+          ))}
+        </div>
+        <div>{this.carPricingCalculator(selectedAddons)}</div>
       </div>
     );
   }
 }
+
+const CheckBox = ({ id, handleChange, checked, label }) => {
+  return (
+    <label key={id}>
+      <input
+        onChange={handleChange}
+        type="checkbox"
+        checked={checked}
+        value={id}
+      />
+      {label}
+    </label>
+  );
+};
 
 export default App;
