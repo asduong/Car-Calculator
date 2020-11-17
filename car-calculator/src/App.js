@@ -63,6 +63,7 @@ class App extends React.Component {
     const salesTax = 1.13;
     const reqDiscountAmt = 8000;
     const currentAddOns = [];
+    let discount = 0;
     let upgrades = 0;
 
     arr.forEach((obj) => {
@@ -74,6 +75,7 @@ class App extends React.Component {
     });
     // If the Upgrade amount is greater than the Required Discount Amount
     if (upgrades >= reqDiscountAmt) {
+      discount = (upgrades - reqDiscountAmt) / 2;
       upgrades = (upgrades - reqDiscountAmt) / 2 + reqDiscountAmt;
     }
 
@@ -82,17 +84,24 @@ class App extends React.Component {
     );
 
     if (currentAddOns.length === 0) {
-      return `The cost for this car is $${totalPrice} with no additional configurations`;
+      return [
+        `The cost for this car is $${totalPrice} with no additional configurations`,
+        0,
+      ];
     }
 
-    return `The cost for this car is $${totalPrice} with the following configurations ${currentAddOns.join(
-      ', '
-    )}`;
+    return [
+      `The cost for this car is $${totalPrice} with the following configurations ${currentAddOns.join(
+        ', '
+      )}`,
+      discount,
+    ];
   };
 
   render() {
     const addOns = this.state.addOns;
     const selectedAddons = addOns.filter((opt) => opt.checked);
+    const addOnDetails = this.carPricingCalculator(selectedAddons);
     return (
       <div>
         <div>
@@ -111,7 +120,8 @@ class App extends React.Component {
             </div>
           ))}
         </div>
-        <div>{this.carPricingCalculator(selectedAddons)}</div>
+        <div>{addOnDetails[0]}</div>
+        <div>Your current discount: ${addOnDetails[1]}</div>
       </div>
     );
   }
