@@ -123,11 +123,20 @@ input[type='checkbox']:hover {
   fill: #eeeeee;
   margin-top: 2%;
 }
+
+.footer a:hover {
+  fill: black;
+}
+
 .svg-size {
   width: 40px;
   height: 40px;
   fill: #eeeeee;
   margin-top: 2%;
+}
+
+.svg-size:hover {
+  fill: black;
 }
 
 .price-config {
