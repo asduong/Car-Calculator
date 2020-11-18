@@ -10,7 +10,9 @@
   justify-content: space-around;
   align-items: center;
   border-bottom: 1px solid grey;
-  min-height: 6vh;
+  min-height: 8vh;
+  position: sticky;
+  top: 0;
 }
 
 ul li {
@@ -26,7 +28,6 @@ ul li a {
   height: 50px;
   width: 50px;
   fill: grey;
-  margin-left: -200px;
 }
 
 .logo:hover {
@@ -49,7 +50,7 @@ ul li a {
 
 p {
   font-size: 18px;
-  line-height: 25px;
+  line-height: 20px;
   font-weight: lighter;
   margin-left: 3%;
   margin-top: 8%;
@@ -123,8 +124,8 @@ input[type='checkbox']:hover {
   margin-top: 2%;
 }
 .svg-size {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   fill: #eeeeee;
   margin-top: 2%;
 }
@@ -135,5 +136,5 @@ input[type='checkbox']:hover {
 }
 
 .spacing {
-  margin-bottom: 5%;
+  margin-bottom: 4%;
 }
