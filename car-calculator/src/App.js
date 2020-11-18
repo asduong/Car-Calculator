@@ -1,6 +1,11 @@
 import React from 'react';
 import './style.css';
 import { ReactComponent as Logo } from './images/logo.svg';
+import { ReactComponent as Facebook } from './images/facebook.svg';
+import { ReactComponent as Instagram } from './images/instagram.svg';
+import { ReactComponent as Twitter } from './images/twitter.svg';
+import { ReactComponent as Key } from './images/key.svg';
+import { ReactComponent as Mail } from './images/mail.svg';
 import tesla from './images/tesla.jpeg';
 
 class App extends React.Component {
@@ -82,6 +87,7 @@ class App extends React.Component {
       upgrades = upgrades - discount;
     }
 
+    // Calculate total cost
     const totalPrice = parseFloat(
       (((upgrades + basePrice) * carFee + adminFee) * salesTax).toFixed(2)
     );
@@ -90,11 +96,12 @@ class App extends React.Component {
       return [
         `The cost for this car is $${totalPrice} with no additional configurations`,
         0,
+        0,
       ];
     }
 
     return [
-      `The cost for this car is $${totalPrice} with the following configurations ${currentAddOns.join(
+      `The cost for this car is $${totalPrice} with the following configurations: ${currentAddOns.join(
         ', '
       )}`,
       discount,
@@ -111,27 +118,29 @@ class App extends React.Component {
         <ul id="nav">
           <Logo className="logo" />
           <li>
-            <a href="#">Home</a>
+            <a href="/">Models</a>
           </li>
           <li>
-            <a href="#">About</a>
+            <a href="/">Innovation</a>
           </li>
           <li>
-            <a href="#">FAQ</a>
+            <a href="/">Locate Dealer</a>
           </li>
         </ul>
         <div className="container">
-          <img src={tesla} alt="Tesla" className="tesla" />
+          <img src={tesla} alt="Tesla Model 3" className="tesla" />
           <div className="shopping-cart">
-            <div className="configurations">
-              <p>Select Your Configuration(s)</p>
+            <div>
+              <p>
+                <strong>Tesla Model 3</strong>
+              </p>
               <p>MSRP $24,999</p>
-              <p>Administration Fees: $1,200</p>
-              <p>Car Fees: 2%</p>
-              <p>Sales Tax: 13%</p>
+              <p>
+                <strong>Select Your Configuration(s):</strong>
+              </p>
 
               {addOns.map((opt) => (
-                <div>
+                <div className="price-config">
                   <CheckBox
                     {...opt}
                     label={opt.addOn}
@@ -140,18 +149,65 @@ class App extends React.Component {
                 </div>
               ))}
             </div>
-            <div>Your total upgrades cost: ${addOnDetails[2]}</div>
-            <div>Your current discount: ${addOnDetails[1]}</div>
-            <div>{addOnDetails[0]}</div>
-            <button>PLACE ORDER</button>
+            <div>
+              <p>
+                Your total upgrades cost: <strong>${addOnDetails[2]}</strong>
+              </p>
+              <p>
+                Your current discount: <strong>${addOnDetails[1]}</strong>
+              </p>
+              <p>Car Fees: 2%</p>
+              <p>Administration Fees: $1,200</p>
+              <p>Sales Tax: 13%</p>
+              <p className="spacing">{addOnDetails[0]}</p>
+            </div>
+            <button className="btn-design">PLACE ORDER</button>
           </div>
+        </div>
+        <div className="footer">
+          <a
+            href={`https://www.facebook.com/TESLAOFFICIAL/`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Facebook></Facebook>
+          </a>
+          <a
+            href={`https://www.instagram.com/teslamotors/?hl=en`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Instagram></Instagram>
+          </a>
+          <a
+            href={`https://twitter.com/Tesla?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Twitter></Twitter>
+          </a>
+          <a
+            href={`https://www.tesla.com/en_CA/drive`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Key className="svg-size"></Key>
+          </a>
+
+          <a
+            href={`https://www.tesla.com/en_CA/contact`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Mail></Mail>
+          </a>
         </div>
       </div>
     );
   }
 }
 
-const CheckBox = ({ id, handleChange, checked, label }) => {
+const CheckBox = ({ id, handleChange, checked, label, price }) => {
   return (
     <label key={id}>
       <input
@@ -160,7 +216,7 @@ const CheckBox = ({ id, handleChange, checked, label }) => {
         checked={checked}
         value={id}
       />
-      {label}
+      {label} - ${price}
     </label>
   );
 };

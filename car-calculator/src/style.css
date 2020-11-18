@@ -10,6 +10,7 @@
   justify-content: space-around;
   align-items: center;
   border-bottom: 1px solid grey;
+  min-height: 6vh;
 }
 
 ul li {
@@ -24,7 +25,12 @@ ul li a {
 .logo {
   height: 50px;
   width: 50px;
-  color: grey;
+  fill: grey;
+  margin-left: -200px;
+}
+
+.logo:hover {
+  fill: black;
 }
 
 .container {
@@ -32,13 +38,102 @@ ul li a {
 }
 
 .tesla {
-  width: 88%;
+  width: 75%;
 }
 
 .shopping-cart {
   border-left: solid 1px grey;
+  border-bottom: solid 1px grey;
+  background-color: #fffafa;
 }
 
-.configurations {
-  font-size: 20px;
+p {
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: lighter;
+  margin-left: 3%;
+  margin-top: 8%;
+}
+
+.btn-design {
+  margin-left: 10%;
+  box-shadow: inset 0px -3px 7px 0px #29bbff;
+  background: linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+  background-color: #2dabf9;
+  border-radius: 3px;
+  border: 1px solid #0b0e07;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  padding: 9px 23px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #263666;
+  border-radius: 100px;
+  width: 80%;
+}
+.btn-design:hover {
+  background: linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+  background-color: #0688fa;
+}
+
+input[type='checkbox'] {
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 15px;
+  border: double 2px #00f;
+  background-color: #0b0095;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 15px;
+  height: 15px;
+}
+
+input[type='checkbox']:checked {
+  background-color: #000;
+  border-left-color: #06f;
+  border-right-color: #06f;
+}
+
+input[type='checkbox']:hover {
+  box-shadow: 0px 0px 10px #00ff55;
+}
+
+.footer {
+  background-color: #393c41;
+  width: 100%;
+  height: 155px;
+  color: #eeeeee;
+  display: flex;
+  justify-content: space-around;
+}
+
+.car {
+  width: 100px;
+  height: 100px;
+  fill: green;
+}
+
+.footer a {
+  width: 70px;
+  height: 70px;
+  fill: #eeeeee;
+  margin-top: 2%;
+}
+.svg-size {
+  width: 70px;
+  height: 70px;
+  fill: #eeeeee;
+  margin-top: 2%;
+}
+
+.price-config {
+  font-size: 19px;
+  margin-left: 4%;
+}
+
+.spacing {
+  margin-bottom: 5%;
 }
