@@ -1,4 +1,7 @@
 import React from 'react';
+import './style.css';
+import { ReactComponent as Logo } from './images/logo.svg';
+import tesla from './images/tesla.jpeg';
 
 class App extends React.Component {
   constructor(props) {
@@ -95,6 +98,7 @@ class App extends React.Component {
         ', '
       )}`,
       discount,
+      upgrades,
     ];
   };
 
@@ -104,24 +108,44 @@ class App extends React.Component {
     const addOnDetails = this.carPricingCalculator(selectedAddons);
     return (
       <div>
-        <div>
-          <p>basePrice: 24999</p>
-          <p>adminFee: 1200</p>
-          <p>carFee: 1.02</p>
-          <p>salesTax: 1.13</p>
+        <ul id="nav">
+          <Logo className="logo" />
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">FAQ</a>
+          </li>
+        </ul>
+        <div className="container">
+          <img src={tesla} alt="Tesla" className="tesla" />
+          <div className="shopping-cart">
+            <div className="configurations">
+              <p>Select Your Configuration(s)</p>
+              <p>MSRP $24,999</p>
+              <p>Administration Fees: $1,200</p>
+              <p>Car Fees: 2%</p>
+              <p>Sales Tax: 13%</p>
 
-          {addOns.map((opt) => (
-            <div>
-              <CheckBox
-                {...opt}
-                label={opt.addOn}
-                handleChange={this.handleChange}
-              />
+              {addOns.map((opt) => (
+                <div>
+                  <CheckBox
+                    {...opt}
+                    label={opt.addOn}
+                    handleChange={this.handleChange}
+                  />
+                </div>
+              ))}
             </div>
-          ))}
+            <div>Your total upgrades cost: ${addOnDetails[2]}</div>
+            <div>Your current discount: ${addOnDetails[1]}</div>
+            <div>{addOnDetails[0]}</div>
+            <button>PLACE ORDER</button>
+          </div>
         </div>
-        <div>{addOnDetails[0]}</div>
-        <div>Your current discount: ${addOnDetails[1]}</div>
       </div>
     );
   }
