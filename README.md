@@ -6,9 +6,16 @@ This application will update the prices immediately based on the user's configur
 
 #### Project Setup
 
-_npm install_ to install all the dependencies
-_npm start_ to run the application
+_npm install_ to install all the dependencies.
+_npm start_ to run the application.
 
 #### Unfinished Tasks
 
 - Responsive Web Design (Soon to be completed).
+
+#### Screenshots
+Purchase page with no car configurations added.
+<img src="src/screenshots/tesla-no-configuration.png">
+
+Purchase page with all configurations added with the price and discount updates.
+<img src="src/screenshots/tesla-with-configuration.png">
