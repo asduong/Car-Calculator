@@ -3,147 +3,297 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Ropa Sans', sans-serif;
-}
-
-#nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-bottom: 1px solid grey;
-  min-height: 8vh;
-  position: sticky;
-  top: 0;
-}
-
-ul li {
-  list-style: none;
-}
-
-ul li a {
-  text-decoration: none;
-  color: grey;
-}
-
-.logo {
-  height: 50px;
-  width: 50px;
-  fill: grey;
-}
-
-.logo:hover {
-  fill: black;
-}
-
-.container {
-  display: flex;
-}
-
-.tesla {
-  width: 75%;
-}
-
-.shopping-cart {
-  border-left: solid 1px grey;
-  border-bottom: solid 1px grey;
-  background-color: #fffafa;
-}
-
-p {
-  font-size: 18px;
-  line-height: 20px;
-  font-weight: lighter;
-  margin-left: 3%;
-  margin-top: 8%;
-}
-
-.btn-design {
-  margin-left: 10%;
-  box-shadow: inset 0px -3px 7px 0px #29bbff;
-  background: linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
-  background-color: #2dabf9;
-  border-radius: 3px;
-  border: 1px solid #0b0e07;
-  display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  font-family: Arial;
-  font-size: 15px;
-  padding: 9px 23px;
-  text-decoration: none;
-  text-shadow: 0px 1px 0px #263666;
-  border-radius: 100px;
-  width: 80%;
-}
-.btn-design:hover {
-  background: linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
-  background-color: #0688fa;
-}
-
-input[type='checkbox'] {
-  padding-left: 5px;
-  padding-right: 5px;
-  border-radius: 15px;
-  border: double 2px #00f;
-  background-color: #0b0095;
-  color: #fff;
-  white-space: nowrap;
   overflow: hidden;
-  width: 15px;
-  height: 15px;
 }
 
-input[type='checkbox']:checked {
-  background-color: #000;
-  border-left-color: #06f;
-  border-right-color: #06f;
+/* Retina Displays */
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {
+  #nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid grey;
+    min-height: 8vh;
+    position: sticky;
+    top: 0;
+  }
+
+  ul li {
+    list-style: none;
+  }
+
+  ul li a {
+    text-decoration: none;
+    color: grey;
+  }
+
+  .logo {
+    height: 50px;
+    width: 50px;
+    fill: grey;
+  }
+
+  .logo:hover {
+    fill: black;
+  }
+
+  .container {
+    display: flex;
+  }
+
+  .tesla {
+    width: 75%;
+  }
+
+  .shopping-cart {
+    border-left: solid 1px grey;
+    border-bottom: solid 1px grey;
+    background-color: #fffafa;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: lighter;
+    margin-left: 3%;
+    margin-top: 8%;
+  }
+
+  .btn-design {
+    margin-left: 10%;
+    box-shadow: inset 0px -3px 7px 0px #29bbff;
+    background: linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+    background-color: #2dabf9;
+    border-radius: 3px;
+    border: 1px solid #0b0e07;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    padding: 9px 23px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #263666;
+    border-radius: 100px;
+    width: 80%;
+  }
+  .btn-design:hover {
+    background: linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+    background-color: #0688fa;
+  }
+
+  input[type='checkbox'] {
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 15px;
+    border: double 2px #00f;
+    background-color: #0b0095;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 15px;
+    height: 15px;
+  }
+
+  input[type='checkbox']:checked {
+    background-color: #000;
+    border-left-color: #06f;
+    border-right-color: #06f;
+  }
+
+  input[type='checkbox']:hover {
+    box-shadow: 0px 0px 10px #00ff55;
+  }
+
+  .footer {
+    background-color: #393c41;
+    width: 100%;
+    height: 155px;
+    color: #eeeeee;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .car {
+    width: 100px;
+    height: 100px;
+    fill: green;
+  }
+
+  .footer a {
+    width: 40px;
+    height: 35px;
+    fill: #eeeeee;
+    margin-top: 2%;
+  }
+
+  .footer a:hover {
+    fill: black;
+  }
+
+  .svg-size {
+    width: 40px;
+    height: 40px;
+    fill: #eeeeee;
+    margin-top: 2%;
+  }
+
+  .svg-size:hover {
+    fill: black;
+  }
+
+  .price-config {
+    font-size: 15px;
+    margin-left: 4%;
+  }
+
+  .spacing {
+    margin-bottom: 4%;
+  }
 }
 
-input[type='checkbox']:hover {
-  box-shadow: 0px 0px 10px #00ff55;
-}
+/* Desktop View */
+@media only screen and (min-width: 992px) {
+  #nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid grey;
+    min-height: 8vh;
+    position: sticky;
+    top: 0;
+  }
 
-.footer {
-  background-color: #393c41;
-  width: 100%;
-  height: 155px;
-  color: #eeeeee;
-  display: flex;
-  justify-content: space-around;
-}
+  ul li {
+    list-style: none;
+  }
 
-.car {
-  width: 100px;
-  height: 100px;
-  fill: green;
-}
+  ul li a {
+    text-decoration: none;
+    color: grey;
+  }
 
-.footer a {
-  width: 40px;
-  height: 40px;
-  fill: #eeeeee;
-  margin-top: 2%;
-}
+  .logo {
+    height: 50px;
+    width: 50px;
+    fill: grey;
+  }
 
-.footer a:hover {
-  fill: black;
-}
+  .logo:hover {
+    fill: black;
+  }
 
-.svg-size {
-  width: 40px;
-  height: 40px;
-  fill: #eeeeee;
-  margin-top: 2%;
-}
+  .container {
+    display: flex;
+  }
 
-.svg-size:hover {
-  fill: black;
-}
+  .tesla {
+    width: 75%;
+  }
 
-.price-config {
-  font-size: 19px;
-  margin-left: 4%;
-}
+  .shopping-cart {
+    border-left: solid 1px grey;
+    border-bottom: solid 1px grey;
+    background-color: #fffafa;
+  }
 
-.spacing {
-  margin-bottom: 4%;
+  p {
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: lighter;
+    margin-left: 3%;
+    margin-top: 8%;
+  }
+
+  .btn-design {
+    margin-left: 10%;
+    box-shadow: inset 0px -3px 7px 0px #29bbff;
+    background: linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+    background-color: #2dabf9;
+    border-radius: 3px;
+    border: 1px solid #0b0e07;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 15px;
+    padding: 9px 23px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #263666;
+    border-radius: 100px;
+    width: 80%;
+  }
+  .btn-design:hover {
+    background: linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+    background-color: #0688fa;
+  }
+
+  input[type='checkbox'] {
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 15px;
+    border: double 2px #00f;
+    background-color: #0b0095;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 15px;
+    height: 15px;
+  }
+
+  input[type='checkbox']:checked {
+    background-color: #000;
+    border-left-color: #06f;
+    border-right-color: #06f;
+  }
+
+  input[type='checkbox']:hover {
+    box-shadow: 0px 0px 10px #00ff55;
+  }
+
+  .footer {
+    background-color: #393c41;
+    width: 100%;
+    height: 155px;
+    color: #eeeeee;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .car {
+    width: 100px;
+    height: 100px;
+    fill: green;
+  }
+
+  .footer a {
+    width: 40px;
+    height: 40px;
+    fill: #eeeeee;
+    margin-top: 2%;
+  }
+
+  .footer a:hover {
+    fill: black;
+  }
+
+  .svg-size {
+    width: 40px;
+    height: 40px;
+    fill: #eeeeee;
+    margin-top: 2%;
+  }
+
+  .svg-size:hover {
+    fill: black;
+  }
+
+  .price-config {
+    font-size: 19px;
+    margin-left: 4%;
+  }
+
+  .spacing {
+    margin-bottom: 4%;
+  }
 }
