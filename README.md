@@ -15,7 +15,7 @@ _npm start_ to run the application.
 
 #### Screenshots
 Purchase page with no car configurations added.
-<img src="src/screenshots/tesla-no-configuration.png">
+<img src="car-calculator/src/screenshots/tesla-no-configuration.png">
 
 Purchase page with all configurations added with the price and discount updates.
-<img src="src/screenshots/tesla-with-configuration.png">
+<img src="car-calculator/src/screenshots/tesla-with-configuration.png">
