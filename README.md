@@ -9,9 +9,6 @@ This application will update the prices immediately based on the user's configur
 _npm install_ to install all the dependencies.
 _npm start_ to run the application.
 
-#### Unfinished Tasks
-
-- Responsive Web Design (Soon to be completed).
 
 #### Screenshots
 Purchase page with no car configurations added.
